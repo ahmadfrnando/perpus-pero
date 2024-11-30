@@ -21,7 +21,8 @@ class PeminjamanFactory extends Factory
      */
     public function definition(): array
     {
-        $tanggalPinjam = Carbon::now();  // Set tanggal pinjam ke tanggal saat ini
+        // $tanggalPinjam = Carbon::now();  // Set tanggal pinjam ke tanggal saat ini
+        $tanggalPinjam = Carbon::createFromDate(2024, rand(1, 12), rand(1, 28)); // Tahun 2024, bulan acak, hari acak (dengan batas maksimum 28)
         $tanggalKembali = (clone $tanggalPinjam)->addDays(7);  // Set tanggal kembali 7 hari setelah tanggal pinjam
 
         return [

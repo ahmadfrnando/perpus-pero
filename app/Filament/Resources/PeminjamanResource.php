@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\PeminjamanResource\Pages;
 use App\Filament\Resources\PeminjamanResource\RelationManagers;
+use App\Models\Anggota;
 use App\Models\Buku;
 use App\Models\Peminjaman;
 use Filament\Forms;
@@ -13,11 +14,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 
 class PeminjamanResource extends Resource
 {
@@ -49,7 +52,7 @@ class PeminjamanResource extends Resource
                     ->searchable(),
                 Select::make('anggota_id')
                     ->label('Anggota')
-                    ->options(Buku::all()->pluck('nama_anggota', 'id'))
+                    ->options(Anggota::all()->pluck('nama_anggota', 'id'))
                     ->searchable(),
             ]);
     }

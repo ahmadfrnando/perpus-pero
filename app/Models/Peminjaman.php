@@ -12,6 +12,8 @@ class Peminjaman extends Model
 
     protected $guarded = [];
 
+    protected $dates = ['tanggal_pinjam'];
+
     public function buku()
     {
         return $this->belongsTo(Buku::class, 'buku_id');

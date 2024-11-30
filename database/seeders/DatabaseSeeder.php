@@ -9,6 +9,7 @@ use App\Models\Pengembalian;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,12 +21,13 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         // Buku::factory(10)->create();
         // Anggota::factory(10)->create();
-        // Peminjaman::factory(10)->create();
-        Pengembalian::factory(5)->create();
+        Peminjaman::factory(10)->create();
+        // Pengembalian::factory(5)->create();
 
         // User::factory()->create([
         //     'name' => 'admin',
         //     'email' => 'admin@gmail.com',
+        //     'password' => Hash::make('123'),
         // ]);
     }
 }

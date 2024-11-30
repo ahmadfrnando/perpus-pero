@@ -25,7 +25,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('')
             ->login()
             ->brandLogo(asset('images/logo-brand-triwuri.png'))
             ->brandLogoHeight('3rem')
