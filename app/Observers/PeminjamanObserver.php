@@ -2,7 +2,9 @@
 
 namespace App\Observers;
 
+use App\Mail\MailNotify;
 use App\Models\Peminjaman;
+use Illuminate\Support\Facades\Mail;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,6 +23,9 @@ class PeminjamanObserver
         Storage::disk('public')->put('qrcodes/' . $qrFilename, $qrImage);
         $peminjaman->qrcode = $qrFilename;
         $peminjaman->code = $qrContent;
+
+        $id = Peminjaman::latest()->first()->id;
+        Mail::to($peminjaman->anggota->email)->send(new MailNotify($id));
     }
 
     /**
